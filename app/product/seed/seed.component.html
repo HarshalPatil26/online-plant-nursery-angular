@@ -1,0 +1,29 @@
+<div class="bg-grey vh-75 d-flex justify-content-top align-items-center">
+    <div class="container d-flex justify-content-center">
+        <div class="cards">
+            <div *ngFor="let seed of seeds" class="card p-2">
+                <div class="p-info px-3 py-3">
+                    <div>
+                        <h5 class="mb-0">{{seed.seedName}}</h5> 
+                    </div>
+                    <div class="p-price d-flex flex-row"> <span><i class="fa fa-inr" aria-hidden="true"></i></span>
+                        <h1>{{seed.seedPrice}}</h1>
+                    </div>
+                    <div class="heart"> <i class="bx bx-heart"></i> </div>
+                </div>
+               <!-- <div class="text-center p-image"> <img [src]="seed.seedImageUrl"> </div> -->
+                <div class="p-about">
+                    <p style="font-size: 16px;">{{seed.seedDescription}}<br>
+                       
+                    </p>
+                    
+                </div>
+                <div class="buttons d-flex flex-row gap-3 px-3">
+                        <button class="btn btn-outline-danger w-100" (click)="addSeedToCart(seed)">
+                            Add to Cart
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

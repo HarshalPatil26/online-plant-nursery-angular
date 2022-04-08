@@ -1,0 +1,141 @@
+<main class="page">
+  <section class="shopping-cart dark">
+    <div class="container">
+      <div class="block-heading">
+        <h2>Shopping Cart</h2>
+        
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="items">
+              <!-- ---------For Seed ------------------------>
+              <div *ngFor="let seedItem of seedItems" class="product">
+                <div class="row">
+                  <div class="col-md-3">
+                   <!--  <img class="img-fluid mx-auto d-block image" src="{{seedItem.seedImageUrl}}" /> -->
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info">
+                      <div class="row">
+                        <div class="col-md-5 product-name">
+                          <div class="product-name">
+                            <h6>{{seedItem.seedName}}</h6>
+                            <div class="product-info">
+                            
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 quantity">
+                          <label for="quantity">Quantity:</label>
+                          <input id="quantity" type="number" class="form-control quantity-input"
+                          (ngModelChange)="updateSeedSum($event)" [(ngModel)]="seedItemQuantity"/>
+                          <p></p>
+                        </div>
+                        <div class="col-md-3 price">
+                          <span>{{seedItem.seedPrice * seedItemQuantity}}</span>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!------------------For Plants ----------------->
+              <div *ngFor="let plantItem of plantItems" class="product">
+                <div class="row">
+                  <div class="col-md-3">
+                    <!-- <img class="img-fluid mx-auto d-block image" src="{{plantItem.plantImageUrl}}" /> -->
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info">
+                      <div class="row">
+                        <div class="col-md-5 product-name">
+                          <div class="product-name">
+                            <h6>{{plantItem.plantName}}</h6>
+                            <div class="product-info">
+                              <div>
+                               
+                              </div>
+                             
+                              <div>Type of Plant: <span class="value">{{plantItem.plantType}}</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 quantity">
+                          <label for="quantity">Quantity:</label>
+                          <input id="quantity" type="number" class="form-control quantity-input"
+                          (ngModelChange)="updatePlantSum($event)" [(ngModel)]="plantItemQuantity" />
+                          <p></p>
+                        </div>
+                        <div class="col-md-3 price">
+                          <span>{{plantItem.plantPrice * plantItemQuantity}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!----------------For Planter------------------->
+              <div *ngFor="let planterItem of planterItems" class="product">
+                <div class="row">
+                  <div class="col-md-3">
+                    <img class="img-fluid mx-auto d-block image" src="{{planterItem.planterImageUrl}}" />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="info">
+                      <div class="row">
+                        <div class="col-md-5 product-name">
+                          <div class="product-name">
+                            <h6>Planter</h6>
+                            <div class="product-info">
+                              <div>
+                               
+                              </div>
+                              <div>Name: <span class="value">{{planterItem.planterName}}</span></div>
+                             
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 quantity">
+                          <label for="quantity">Quantity:</label>
+                          <input id="quantity" type="number" class="form-control quantity-input"
+                          (ngModelChange)="updatePlanterSum($event)" [(ngModel)]="planterItemQuantity" />
+                          <p></p>
+                        </div>
+                        <div class="col-md-3 price">
+                          <span>{{planterItem.planterPrice * planterItemQuantity}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <div class="summary">
+              <h4><i class="fa fa-shopping-cart"></i> &nbsp; Order Summary</h4>  <hr>
+              <div class="summary-item">
+                <span class="text">Unit Price</span><span class="price"><i class="fa fa-inr" aria-hidden="true"></i>
+                  {{totalPrice}}</span>
+              </div>
+              
+              <div class="summary-item">
+                <span class="text">Total</span><span class="price"><i class="fa fa-inr" aria-hidden="true"></i>
+                  {{totalPrice}}</span>
+              </div>
+              <a routerLink="/order">
+                <button *ngIf="totalPrice !=0" type="button" class="btn btn-success"
+                  (click)="onClickCheckout()">
+                  <i class="fa fa-credit-card" style="font-size:24px"></i> &nbsp; Proceed to Checkout 
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
